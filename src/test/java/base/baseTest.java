@@ -1,16 +1,21 @@
 package base;
+
 import drivers.driverFactory;
+import org.openqa.selenium.WebDriver;
 import org.testng.annotations.*;
 
-public class baseTest{
-    driverFactory df = new driverFactory();
+public class baseTest {
+
+    protected WebDriver driver;
+
     @BeforeMethod
     public void setUp() {
-        df.initDriver();
+        driver = driverFactory.initDriver(); // initialize static driver
+        driverFactory.launchApplication("https://testautomationpractice.blogspot.com/");
     }
 
     @AfterMethod
     public void tearDown() {
-        df.quitDriver();
+        driverFactory.quitDriver(); // quit after each test
     }
 }

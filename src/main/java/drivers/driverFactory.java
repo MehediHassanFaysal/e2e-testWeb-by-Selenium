@@ -9,19 +9,31 @@ import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
 public class driverFactory {
+
     public static WebDriver driver;
 
-    public void initDriver() {
-        WebDriverManager.getInstance().setup();
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--remote-allow-origins=*", "--disable-notifications");
-        driver = new ChromeDriver(options);
-        driver.manage().deleteAllCookies();
-        driver.manage().timeouts().pageLoadTimeout(40, TimeUnit.SECONDS);
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+    public static WebDriver initDriver() {
+        if (driver == null) {
+            WebDriverManager.chromedriver().setup();
+            ChromeOptions options = new ChromeOptions();
+            options.addArguments("--remote-allow-origins=*", "--disable-notifications");
+            driver = new ChromeDriver(options);
+            driver.manage().timeouts().pageLoadTimeout(40, TimeUnit.SECONDS);
+            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+            driver.manage().deleteAllCookies();
+            driver.manage().window().maximize();
+        }
+        return driver;
     }
 
-    public void quitDriver(){
-        driver.quit();
+    public static void launchApplication(String url) {
+        driver.get(url);
+    }
+
+    public static void quitDriver() {
+        if (driver != null) {
+            driver.quit();
+            driver = null;
+        }
     }
 }
