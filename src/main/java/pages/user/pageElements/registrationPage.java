@@ -13,4 +13,8 @@ public class registrationPage {
     @FindBy(id = "reg-password") public WebElement passwordField;
     @FindBy(id = "password_confirmation") public WebElement confirmPasswordField;
     @FindBy(css = "button[type='submit']") public WebElement registerConfirmBtn;
+
+    // Validation
+    //div[@class='alert-fail error show']
+    @FindBy(xpath = "//div[@class='alert-fail error show']") public WebElement failureAlert;
 }

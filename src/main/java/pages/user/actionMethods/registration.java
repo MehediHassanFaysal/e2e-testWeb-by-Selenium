@@ -1,5 +1,7 @@
 package pages.user.actionMethods;
 
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.NotFoundException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import pages.user.assertValue.registrationAssertVal;
@@ -24,37 +26,127 @@ public class registration extends registrationPage {
 
     public void clickOnRegisterToggleBtn() throws InterruptedException {
         Thread.sleep(1000);
-        registerToggleBtn.click();
-        Thread.sleep(1000);
+        try{
+            registerToggleBtn.click();
+            Thread.sleep(1000);
+        }catch (NoSuchElementException e){
+            System.out.println("Register Toggle Button Not Found.");
+        }
     }
 
+
     public void enterName() throws InterruptedException {
-        nameTxtField.clear();
-        nameTxtField.sendKeys(val.name);
-        Thread.sleep(1000);
+        try{
+            if(nameTxtField.isDisplayed() && nameTxtField.getDomAttribute("value").isEmpty()){
+                setName();
+            }else{
+                clearName();
+                setName();
+            }
+            Thread.sleep(1000);
+        }catch (NotFoundException e){
+            System.out.println("Name Text Field Not Found.");
+        }
+
     }
 
     public void enterEmail() throws InterruptedException {
-        emailField.clear();
-        emailField.sendKeys(val.emailAddress);
-        Thread.sleep(1000);
+        try{
+            if(emailField.isDisplayed() && emailField.getDomAttribute("value").isEmpty()){
+                setEmail();
+            }else{
+                clearEmail();
+                setEmail();
+            }
+            Thread.sleep(1000);
+        }catch (NotFoundException e){
+            System.out.println("Email Field is Not Found.");
+        }
     }
 
     public void enterPassword() throws InterruptedException {
-        passwordField.clear();
-        passwordField.sendKeys(val.password);
-        Thread.sleep(1000);
+        try{
+            if(passwordField.isDisplayed() && passwordField.getDomAttribute("value").isEmpty()){
+                setPassword();
+            }else{
+                clearPassword();
+                setPassword();
+            }
+            Thread.sleep(1000);
+        }catch (NotFoundException e){
+            System.out.println("Password Field is Not Found.");
+        }
     }
 
     public void enterConfirmPassword() throws InterruptedException {
         confirmPasswordField.clear();
         confirmPasswordField.sendKeys(val.confirmPassword);
         Thread.sleep(1000);
+        try{
+            if(confirmPasswordField.isDisplayed() && confirmPasswordField.getDomAttribute("value").isEmpty()){
+                setConfirmPassword();
+            }else{
+                clearConfirmPassword();
+                setConfirmPassword();
+            }
+            Thread.sleep(1000);
+        }catch (NotFoundException e){
+            System.out.println("Password Field is Not Found.");
+        }
     }
 
     public void clickOnRegisterBtn() throws InterruptedException {
-        registerConfirmBtn.click();
-        Thread.sleep(1000);
+
+        try{
+            registerConfirmBtn.click();
+            Thread.sleep(1000);
+        }catch (NoSuchElementException e){
+            System.out.println("Submit (Register) button is not found.");
+        }
     }
 
+   // setter
+    public void setName(){
+        nameTxtField.sendKeys(val.name);
+    }
+
+    public void clearName(){
+        nameTxtField.clear();
+    }
+
+
+    public void  setEmail(){
+        emailField.sendKeys(val.emailAddress);
+    }
+
+    public void clearEmail(){
+        emailField.clear();
+    }
+
+
+    public void  setPassword(){
+        passwordField.sendKeys(val.password);
+    }
+
+    public void clearPassword(){
+        passwordField.clear();
+    }
+
+    public void  setConfirmPassword(){
+        confirmPasswordField.sendKeys(val.confirmPassword);
+    }
+
+    public void clearConfirmPassword(){
+        confirmPasswordField.clear();
+    }
+
+
+    public String getAlert() {
+        String failureTxt = null;
+        if (failureAlert.isDisplayed()) {
+            failureTxt = failureAlert.getText();
+            System.out.println("Register alert: " + failureTxt);
+        }
+        return failureTxt;
+    }
 }

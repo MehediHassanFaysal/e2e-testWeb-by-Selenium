@@ -1,6 +1,6 @@
 package pages.user.assertValue;
 
 public class registrationAssertVal {
-    public String successAlert = "";
+    public String successAlert = "Registration Successful";
     public String failureAlert = "";
 }
