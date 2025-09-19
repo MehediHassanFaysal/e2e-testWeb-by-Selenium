@@ -11,11 +11,11 @@ public class baseTest {
     @BeforeMethod
     public void setUp() {
         driver = driverFactory.initDriver(); // initialize static driver
-        driverFactory.launchApplication("https://testautomationpractice.blogspot.com/");
+        driverFactory.launchApplication("http://127.0.0.1:8000/");
     }
 
     @AfterMethod
     public void tearDown() {
-        driverFactory.quitDriver(); // quit after each test
+//        driverFactory.quitDriver(); // quit after each test
     }
 }

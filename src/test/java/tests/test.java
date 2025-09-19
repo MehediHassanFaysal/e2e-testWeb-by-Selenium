@@ -2,7 +2,7 @@ package tests;
 
 import base.baseTest;
 import org.testng.annotations.Test;
-import pages.actionMethods.login;
+import pages.user.actionMethods.login;
 
 public class test extends baseTest {
     login LoginPage;

@@ -1,4 +1,4 @@
-package pages.assertValue;
+package pages.user.assertValue;
 
 public class loginAssertVal {
 }
