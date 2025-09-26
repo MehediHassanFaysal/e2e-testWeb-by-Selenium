@@ -55,4 +55,9 @@ public class adminUserDashboardPage {
                 By.xpath("//div[@id='home']//table//tbody//tr[1]//td[4]//button[contains(text(),'Edit')]"));
         return element.getText();
     }
+
+    public WebElement editBtn1(int row, int column) {
+//        return driver.findElement(By.xpath("//div[@id='home']//table//tbody//tr["+row+"]//td["+column+"]//button[contains(text(),'Edit')]"));
+        return driver.findElement(By.xpath("//div[@id='home']//table//tbody//tr["+row+"]//td["+column+"]//button[contains(text(),'Edit')]"));
+    }
 }
