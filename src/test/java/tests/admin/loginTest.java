@@ -7,7 +7,7 @@ import pages.admin.actionMethods.adminLogin;
 public class loginTest extends baseTest {
     adminLogin login;
 
-    @Test
+    @Test (priority = 0, alwaysRun = true, testName = "Verify admin login with test credentials" , description = "Admin can login the admin panel with valid credentials")
     void verifyAdminLogin(){
         login = new adminLogin(driver);
         login.enterEmailAddress();
