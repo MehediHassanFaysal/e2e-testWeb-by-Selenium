@@ -23,9 +23,29 @@ public class adminUserDashboard extends adminUserDashboardPage {
     }
 
 
+    public void enterUpdatedAdminName(){
+        try{
+            setAdminName(testData.adminName);
+        }catch (NoSuchElementException e){
+            System.out.println("Name field isn't found." + e.getMessage());
+        }
+    }
 
+    public void enterUpdatedEmailAddress(){
+        try{
+            setAdminEmailAddress(testData.adminEmail);
+        }catch (NoSuchElementException e){
+            System.out.println("Email field isn't found." + e.getMessage());
+        }
+    }
 
-
+    public void clickOnUpdate(){
+        try{
+            waitUtils.fluentWaitForElement(driver, updateBtn).click();
+        }catch (NoSuchElementException e){
+            System.out.println("Update button isn't found." + e.getMessage());
+        }
+    }
 
 
 
@@ -38,7 +58,24 @@ public class adminUserDashboard extends adminUserDashboardPage {
         waitUtils.fluentWaitForElement(driver, updateEmailField).sendKeys(email);
     }
 
-    void identifyAdmin(){
+    public void clearAdminName(){
+        try{
+            waitUtils.fluentWaitForElement(driver, updateNameField).clear();
+        }catch (Exception e){
+            System.out.println("Name field is not found");
+        }
+    }
+
+    public void clearAdminEmail(){
+        try{
+            waitUtils.fluentWaitForElement(driver, updateEmailField).clear();
+        }catch (Exception e){
+            System.out.println("Email field is not found");
+        }
+
+    }
+
+    public void identifyAdmin(){
         try{
             int getNoOfRows = noOfRows.size();
             System.out.println("Total no. of rows in admin table is " + getNoOfRows);
