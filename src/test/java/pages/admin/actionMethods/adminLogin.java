@@ -1,5 +1,7 @@
 package pages.admin.actionMethods;
 
+import base.baseTest;
+import com.relevantcodes.extentreports.LogStatus;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
@@ -9,10 +11,16 @@ import pages.admin.pageElements.adminLoginPage;
 import pages.admin.testInput.adminLoginTestData;
 import utils.waitUtils;
 
+import java.io.IOException;
+
+import static base.baseTest.capture;
+
 public class adminLogin extends adminLoginPage {
     adminLoginTestData val = new adminLoginTestData();
     adminLoginAssertVal assertVal = new adminLoginAssertVal();
     WebDriver driver;
+
+    baseTest report = new baseTest();
 
     // Constructor - webDriver call
     public adminLogin (WebDriver driver){
@@ -28,11 +36,16 @@ public class adminLogin extends adminLoginPage {
                 clearEmail();
                 setEmail();
                 System.out.println("Email address entered successfully.");
+                report.log.info("Email address entered successfully."); // for logger
+                report.test.log(LogStatus.PASS, "Email address entered successfully.");  // for report
             }else{
                 System.out.println("Email field not visible or enabled.");
+                report.test.log(LogStatus.FAIL,report.test.addScreenCapture(capture(driver))+ "Test Failed: Failed to landing on dashboard");
             }
         }catch (NoSuchElementException e){
             System.out.println("Email field not found. " + e.getMessage());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 

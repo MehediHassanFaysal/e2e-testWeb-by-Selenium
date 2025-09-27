@@ -12,7 +12,7 @@ public class adminInfoChangeRequestTest extends baseTest {
         login.performLogin(driver);
     }
 
-    @Test (priority = 1, alwaysRun = false, testName = "Admin information Change", description = "Verify that admin can change the admin user information")
+    @Test (priority = 1, alwaysRun = true, testName = "Admin information Change", description = "Verify that admin can change the admin user information")
     public void verifyAdminInformationChange_success(){
         loginPerform();
         // admin information change
@@ -26,9 +26,9 @@ public class adminInfoChangeRequestTest extends baseTest {
         adminInfo.verifyUpdate();
     }
 
-    @Test (priority = 2, alwaysRun = false, testName = "Unable to change admin information Change", description = "Verify that admin can't change the admin name with invalid credential")
+    @Test (priority = 2, alwaysRun = true, testName = "Unable to change admin information Change", description = "Verify that admin can't change the admin name with invalid credential")
     public void verifyAdminNameChangeWithInvalidCredential(){
-        loginPerform();
+//        loginPerform();
         // admin information change
         adminInfo = new adminUserDashboard(driver);
         adminInfo.identifyAdmin();
@@ -42,7 +42,7 @@ public class adminInfoChangeRequestTest extends baseTest {
 
     @Test (priority = 3, alwaysRun = true, testName = "Duplicate email entry check", description = "Verify that admin can't enter the email that already exist it the database")
     public void verifyAdminEmailUniqueNess(){
-        loginPerform();
+//        loginPerform();
         // admin information change
         adminInfo = new adminUserDashboard(driver);
         adminInfo.identifyAdmin();
