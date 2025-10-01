@@ -33,7 +33,7 @@ public class baseTest {
 //    @AfterMethod
     @AfterClass
     public void tearDown() {
-        driverFactory.quitDriver(); // quit after each test
+//        driverFactory.quitDriver(); // quit after each test
     }
 
 

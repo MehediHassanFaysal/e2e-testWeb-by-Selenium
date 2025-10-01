@@ -23,7 +23,7 @@ public class login extends loginPage {
 
     public void enterEmailAddress() throws InterruptedException {
         Thread.sleep(3000);
-        useridLocator.sendKeys(userInput.emailAddress);
+        useridLocator.sendKeys(userInput.email);
     }
 
 }
