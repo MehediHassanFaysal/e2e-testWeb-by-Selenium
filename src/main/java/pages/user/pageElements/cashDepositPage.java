@@ -17,5 +17,7 @@ public class cashDepositPage {
     @FindBy (id = "remarks") public WebElement remarksTextArea;
     @FindBy (xpath = "//button[normalize-space()='Submit']") public WebElement submitBtn;
     @FindBy (xpath = "//button[normalize-space()='Clear']") public WebElement clearBtn;
+    @FindBy (css = ".alert-fail.error.show") public WebElement alertLocator;
+
 
 }
