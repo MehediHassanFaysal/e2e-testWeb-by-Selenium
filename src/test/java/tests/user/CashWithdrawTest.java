@@ -1,11 +1,11 @@
 package tests.user;
 
-import base.baseTest;
+import base.BaseTest;
 import org.testng.annotations.Test;
-import pages.user.actionMethods.cashWithdraw;
+import pages.user.actionMethods.CashWithdraw;
 
-public class cashWithdrawTest extends baseTest {
-    loginTest login = new loginTest();
+public class CashWithdrawTest extends BaseTest {
+    LoginTest login = new LoginTest();
 
     public void loginPerform(){
         login.performLogin(driver);
@@ -15,7 +15,7 @@ public class cashWithdrawTest extends baseTest {
     void cashWithdrawTest_Success(){
         loginPerform();
 
-        cashWithdraw withdraw = new cashWithdraw(driver);
+        CashWithdraw withdraw = new CashWithdraw(driver);
         withdraw.navigateToCashWithdraw();
         withdraw.enterWithdrawAmount();
         withdraw.enterRemarks();

@@ -10,13 +10,13 @@ import pages.admin.assertValue.adminUserDashboardAssertVal;
 import pages.admin.pageElements.adminUserDashboardPage;
 import pages.admin.testInput.adminUserTestData;
 import utils.waitUtils;
-public class adminUserDashboard extends adminUserDashboardPage {
+public class AdminUserDashboard extends adminUserDashboardPage {
     adminUserTestData testData = new adminUserTestData();
     adminUserDashboardAssertVal val = new adminUserDashboardAssertVal();
     WebDriver driver;
 
     // Constructor calls and all this set in WebDriver
-    public adminUserDashboard(WebDriver driver){
+    public AdminUserDashboard(WebDriver driver){
         this.driver = driver;
         PageFactory.initElements(driver, this); // allow the page elements
     }

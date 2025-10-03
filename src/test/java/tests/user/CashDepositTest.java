@@ -1,11 +1,11 @@
 package tests.user;
 
-import base.baseTest;
+import base.BaseTest;
 import org.testng.annotations.Test;
-import pages.user.actionMethods.cashDeposit;
+import pages.user.actionMethods.AashDeposit;
 
-public class cashDepositTest extends baseTest {
-    loginTest login = new loginTest();
+public class CashDepositTest extends BaseTest {
+    LoginTest login = new LoginTest();
 
     public void loginPerform(){
         login.performLogin(driver);
@@ -15,7 +15,7 @@ public class cashDepositTest extends baseTest {
     void cashDepositTest_Success(){
         loginPerform();
 
-        cashDeposit deposit = new cashDeposit(driver);
+        AashDeposit deposit = new AashDeposit(driver);
         deposit.enterDepositAmount();
         deposit.enterRemarks();
         deposit.clickOnSubmit();

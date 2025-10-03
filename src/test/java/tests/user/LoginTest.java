@@ -1,15 +1,18 @@
-package tests.admin;
+package tests.user;
 
-import base.baseTest;
+import base.BaseTest;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Test;
-import pages.admin.actionMethods.adminLogin;
+import pages.user.actionMethods.UserLogin;
 
-public class loginTest extends baseTest {
-    private adminLogin login;
+// Test conducted by Faysal Sarder
 
-    @Test (priority = 0, alwaysRun = true, testName = "Verify admin login with test credentials" , description = "Admin can login the admin panel with valid credentials")
-    void verifyAdminLogin(){
+public class LoginTest extends BaseTest {
+
+    private UserLogin login;
+
+    @Test(priority = 0, alwaysRun = true, testName = "User login test" , description = "Verify that user can login the system with valid credentials")
+    void verifyUserLogin(){
         performLogin(driver);   // Explicitly pass the driver
     }
 
@@ -19,7 +22,7 @@ public class loginTest extends baseTest {
             throw new IllegalStateException("WebDriver cannot be null");
         }
         try {
-            login = new adminLogin(driver);
+            login = new UserLogin(driver);
             login.enterEmailAddress();
             login.enterPassword();
             login.selectUserType();

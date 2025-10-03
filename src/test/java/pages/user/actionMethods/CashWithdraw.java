@@ -4,25 +4,32 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
-import pages.user.assertValue.cashDepositAssertValue;
-import pages.user.pageElements.cashDepositPage;
-import pages.user.testInput.cashDepositTestCredentials;
+import pages.user.assertValue.cashWithdrawAssertValue;
+import pages.user.pageElements.cashWithdrawPage;
+import pages.user.testInput.cashWithdrawTestCredentials;
 
-public class cashDeposit extends cashDepositPage {
-    cashDepositTestCredentials val = new cashDepositTestCredentials();
-    cashDepositAssertValue assertValue = new cashDepositAssertValue();
+public class CashWithdraw extends cashWithdrawPage {
+    cashWithdrawTestCredentials val = new cashWithdrawTestCredentials();
+    cashWithdrawAssertValue assertValue = new cashWithdrawAssertValue();
 
     WebDriver driver;
 
-    public cashDeposit(WebDriver driver){
+    public CashWithdraw(WebDriver driver){
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
     JavascriptExecutor js = (JavascriptExecutor) driver;
 
-    public void enterDepositAmount(){
+    public void navigateToCashWithdraw(){
+        try{
+            cashWithdrawNavItem.click();
+        }catch (NoSuchElementException e){
+            throw new RuntimeException(e.getMessage());
+        }
+    }
+    public void enterWithdrawAmount(){
         if(getUserName ().isEmpty() || getMemberCode ().isEmpty() || getMobileNumber ().isEmpty() ||
-                getNidNumber().isEmpty() || getAccountType().isEmpty() || getAccountNumber ().isEmpty()){
+                getNidNumber().isEmpty() || getAvailableAmount().isEmpty() || getAccountNumber ().isEmpty()){
             assert false;
         }else{
             if(getAccountNumber ().equals(val.accountNumber) && depositAmountNumberField.getAttribute("value").isEmpty()){
@@ -45,29 +52,55 @@ public class cashDeposit extends cashDepositPage {
             throw new RuntimeException(e.getMessage());
         }
     }
+
+    int initialBalance;
+    int restOfBalance;
+    String restOfBal;
+    int restOfAmount;
+    String restOfAmnt;
     public void clickOnSubmit(){
         try{
+            initialBalance =  Integer.parseInt(getAvailableAmount ());  // convert string to int
+
             submitBtn.click();
 
             // validation
             String alert = getAlert();
 
             if (alert == null){
-                System.out.println("Cash Deposit Successful <Test Passed>");
+                System.out.println("Cash With Successful <Test Passed>");
                 assert true;
+                validation ();
             }else{
-                boolean isSuccess = (alert != null && alert.contains(assertValue.message));
+                boolean isSuccess = alert.contains(assertValue.message);
                 if(isSuccess){
-                    System.out.println("Cash Deposit Successful <Test Passed>");
+                    validation ();
                     assert true;
                 }else{
-                    System.out.println("Failed to Cash Deposit Request <Test Failed>");
+                    System.out.println("Failed to With Deposit Request <Test Failed>");
                     assert false;
                 }
             }
 
         }catch (NoSuchElementException e){
             throw  new RuntimeException(e.getMessage());
+        }
+    }
+
+    private void validation() {
+        // After withdraw
+        restOfBalance =  Integer.parseInt(getAvailableAmount ());  // convert string to int
+        restOfBal =String.valueOf(restOfBalance);
+
+        // calculation
+        restOfAmount = initialBalance - val.amount;
+        restOfAmnt = Integer.toString(restOfAmount);
+        if(restOfAmnt.equals(restOfBal)){
+            System.out.println("Cash With Successful <Test Passed>");
+            assert true;
+        }else{
+            System.out.println("Failed to With Deposit Request <Test Failed>");
+            assert false;
         }
     }
 
@@ -132,11 +165,11 @@ public class cashDeposit extends cashDepositPage {
         }
     }
 
-    String getAccountType (){
+    String getAvailableAmount (){
         try{
-            if(accountTypeReadOnlyField.isDisplayed()){
+            if(availableAmountField.isDisplayed()){
 //                js.executeScript("arguments[0].removeAttribute('disabled')", accountTypeReadOnlyField);
-                String accountType = accountTypeReadOnlyField.getAttribute("value");
+                String accountType = availableAmountField.getAttribute("value");
                 return accountType;
             }else{
                 return null;

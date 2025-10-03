@@ -1,12 +1,11 @@
 package tests;
 
-import base.baseTest;
-import org.testng.annotations.Test;
+import base.BaseTest;
 import pages.user.actionMethods.login;
 
-public class test extends baseTest {
+public class Test extends BaseTest {
     login LoginPage;
-    @Test
+    @org.testng.annotations.Test
     public void verifyLogin() throws InterruptedException {
         LoginPage = new login(driver);
         LoginPage.enterEmailAddress();

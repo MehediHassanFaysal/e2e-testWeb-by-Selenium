@@ -1,13 +1,13 @@
 package tests.user;
 
-import base.baseTest;
+import base.BaseTest;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.user.actionMethods.registration;
 import pages.user.assertValue.registrationAssertVal;
 
 // Test Scripted By: Faysal Sarder (Date: 19-09-2025)
-public class registrationTest extends baseTest {
+public class RegistrationTest extends BaseTest {
     registrationAssertVal assertVal = new registrationAssertVal();
     registration register;
 

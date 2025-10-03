@@ -1,12 +1,12 @@
 package tests.admin;
 
-import base.baseTest;
+import base.BaseTest;
 import org.testng.annotations.Test;
-import pages.admin.actionMethods.adminUserDashboard;
+import pages.admin.actionMethods.AdminUserDashboard;
 
-public class adminInfoChangeRequestTest extends baseTest {
-    loginTest login = new loginTest();
-    adminUserDashboard adminInfo;
+public class AdminInfoChangeRequestTest extends BaseTest {
+    LoginTest login = new LoginTest();
+    AdminUserDashboard adminInfo;
 
     private void loginPerform() {
         login.performLogin(driver);
@@ -16,7 +16,7 @@ public class adminInfoChangeRequestTest extends baseTest {
     public void verifyAdminInformationChange_success(){
         loginPerform();
         // admin information change
-        adminInfo = new adminUserDashboard(driver);
+        adminInfo = new AdminUserDashboard(driver);
         adminInfo.identifyAdmin();
         adminInfo.clearAdminName();
         adminInfo.clearAdminEmail();
@@ -30,7 +30,7 @@ public class adminInfoChangeRequestTest extends baseTest {
     public void verifyAdminNameChangeWithInvalidCredential(){
 //        loginPerform();
         // admin information change
-        adminInfo = new adminUserDashboard(driver);
+        adminInfo = new AdminUserDashboard(driver);
         adminInfo.identifyAdmin();
         adminInfo.clearAdminName();
         adminInfo.clearAdminEmail();
@@ -44,7 +44,7 @@ public class adminInfoChangeRequestTest extends baseTest {
     public void verifyAdminEmailUniqueNess(){
 //        loginPerform();
         // admin information change
-        adminInfo = new adminUserDashboard(driver);
+        adminInfo = new AdminUserDashboard(driver);
         adminInfo.identifyAdmin();
         adminInfo.clearAdminName();
         adminInfo.clearAdminEmail();

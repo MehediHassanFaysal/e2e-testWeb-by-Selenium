@@ -8,7 +8,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
-public class driverFactory {
+public class DriverFactory {
 
     public static WebDriver driver;
 

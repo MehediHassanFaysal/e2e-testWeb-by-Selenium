@@ -1,6 +1,6 @@
 package base;
 
-import drivers.driverFactory;
+import drivers.DriverFactory;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -9,7 +9,7 @@ import org.testng.annotations.*;
 
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
-import pages.admin.actionMethods.adminLogin;
+import pages.admin.actionMethods.AdminLogin;
 import utils.dateTime;
 import freemarker.log.Logger;
 
@@ -18,7 +18,7 @@ import java.io.IOException;
 
 // Test Scripted by Faysal Sarder
 
-public class baseTest {
+public class BaseTest {
     static dateTime date = new dateTime();
 
     protected WebDriver driver;
@@ -26,8 +26,8 @@ public class baseTest {
 //    @BeforeMethod
     @BeforeClass
     public void setUp() {
-        driver = driverFactory.initDriver(); // initialize static driver
-        driverFactory.launchApplication("http://127.0.0.1:8000/");
+        driver = DriverFactory.initDriver(); // initialize static driver
+        DriverFactory.launchApplication("http://127.0.0.1:8000/");
     }
 
 //    @AfterMethod
@@ -37,14 +37,10 @@ public class baseTest {
     }
 
 
-
-
-
-
     // ==================================== For Reporting Purpose (Start) =========================================
     static ExtentReports report;
     public static ExtentTest test;
-    public static Logger log = Logger.getLogger(String.valueOf(adminLogin.class));      // declare for logger
+    public static Logger log = Logger.getLogger(String.valueOf(AdminLogin.class));      // declare for logger
 
     @BeforeTest
     public void setExtent(){

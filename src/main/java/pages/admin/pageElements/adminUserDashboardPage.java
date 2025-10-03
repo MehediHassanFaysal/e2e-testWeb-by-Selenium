@@ -6,7 +6,7 @@ import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 
-import static drivers.driverFactory.driver;
+import static drivers.DriverFactory.driver;
 
 public class adminUserDashboardPage {
 

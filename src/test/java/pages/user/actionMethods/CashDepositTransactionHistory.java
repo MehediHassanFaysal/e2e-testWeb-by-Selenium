@@ -1,6 +1,5 @@
 package pages.user.actionMethods;
 
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
@@ -10,12 +9,12 @@ import pages.user.pageElements.cashDepositTransactionHistoryPage;
 import pages.user.testInput.cashDepositTransactionHistoryTestCredentials;
 import utils.waitUtils;
 
-public class cashDepositTransactionHistory extends cashDepositTransactionHistoryPage {
+public class CashDepositTransactionHistory extends cashDepositTransactionHistoryPage {
     WebDriver driver;
     cashDepositTransactionHistoryAssertValue assertValue = new cashDepositTransactionHistoryAssertValue();
     cashDepositTransactionHistoryTestCredentials val = new cashDepositTransactionHistoryTestCredentials();
 
-    public cashDepositTransactionHistory(WebDriver driver){
+    public CashDepositTransactionHistory(WebDriver driver){
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }

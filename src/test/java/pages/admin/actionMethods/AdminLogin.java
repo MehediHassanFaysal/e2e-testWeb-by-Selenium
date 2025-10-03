@@ -1,6 +1,6 @@
 package pages.admin.actionMethods;
 
-import base.baseTest;
+import base.BaseTest;
 import com.relevantcodes.extentreports.LogStatus;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
@@ -13,17 +13,17 @@ import utils.waitUtils;
 
 import java.io.IOException;
 
-import static base.baseTest.capture;
+import static base.BaseTest.capture;
 
-public class adminLogin extends adminLoginPage {
+public class AdminLogin extends adminLoginPage {
     adminLoginTestData val = new adminLoginTestData();
     adminLoginAssertVal assertVal = new adminLoginAssertVal();
     WebDriver driver;
 
-    baseTest report = new baseTest();
+    BaseTest report = new BaseTest();
 
     // Constructor - webDriver call
-    public adminLogin (WebDriver driver){
+    public AdminLogin(WebDriver driver){
         this.driver = driver;
         PageFactory.initElements(driver, this);  // allow the page elements
     }

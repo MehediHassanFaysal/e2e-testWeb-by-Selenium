@@ -1,11 +1,11 @@
 package tests.user;
 
-import base.baseTest;
+import base.BaseTest;
 import org.testng.annotations.Test;
-import pages.user.actionMethods.cashWithdrawTransactionHistory;
+import pages.user.actionMethods.CashWithdrawTransactionHistory;
 
-public class cashWithdrawTransactionHistoryTest extends baseTest {
-    loginTest login = new loginTest();
+public class CashWithdrawTransactionHistoryTest extends BaseTest {
+    LoginTest login = new LoginTest();
 
     public void loginPerform(){
         login.performLogin(driver);
@@ -15,7 +15,7 @@ public class cashWithdrawTransactionHistoryTest extends baseTest {
     void cashWithdrawTransactionHistoryTest_Success(){
         loginPerform();
 
-        cashWithdrawTransactionHistory history = new cashWithdrawTransactionHistory(driver);
+        CashWithdrawTransactionHistory history = new CashWithdrawTransactionHistory(driver);
         history.navigateToCashDepositHistory();
         history.enterAccountNumber();
         history.clickOnSearch();

@@ -9,12 +9,12 @@ import pages.user.pageElements.cashWithdrawTransactionHistoryPage;
 import pages.user.testInput.cashWithdrawTransactionHistoryTestCredentials;
 import utils.waitUtils;
 
-public class cashWithdrawTransactionHistory extends cashWithdrawTransactionHistoryPage {
+public class CashWithdrawTransactionHistory extends cashWithdrawTransactionHistoryPage {
     WebDriver driver;
     cashWithdrawTransactionHistoryAssertValue assertValue = new cashWithdrawTransactionHistoryAssertValue();
     cashWithdrawTransactionHistoryTestCredentials val = new cashWithdrawTransactionHistoryTestCredentials();
 
-    public cashWithdrawTransactionHistory(WebDriver driver){
+    public CashWithdrawTransactionHistory(WebDriver driver){
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
