@@ -18,3 +18,7 @@
 | Parallel Execution   | TestNG Parallel / Selenium Grid |
 
 
+## Framework Process Flow Architecture Diagram (Visual Internal Flow)
+![Flow Architectural Diagram](src/main/resources/images/architect-flow.png)
+
+    Here's a beautified, fully structured Mermaid flowchart version of your Selenium + TestNG framework
