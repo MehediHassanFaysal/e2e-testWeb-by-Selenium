@@ -19,6 +19,19 @@
 | Parallel Execution   | TestNG Parallel / Selenium Grid |
 
 
+## E2E Test Flow Diagram
+![e2e test flow](src/main/resources/images/e2e-single-test-flow.png)
+**_🔁 End-to-End Flow_**
+> - #### **TestNG → Test → BaseTest → Driver → Page Objects → Utilities → Listeners → Reports** <br>
+>  - This creates a structured, reusable, and maintainable automation framework.
+>  - TestNG starts execution 
+>  - Base + Driver initializes browser 
+>  - Page Objects perform actions 
+>  - Utilities + Listeners provide support 
+>  - Reports & Logs capture results
+
+
+
 ## Framework Process Flow Architecture Diagram (Visual Internal Flow)
 ![Flow Architectural Diagram](src/main/resources/images/architect-flow.png)
 
