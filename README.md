@@ -30,25 +30,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <style>
-    table {
-      border-collapse: collapse;
-      width: 100%;
-      font-family: Arial, sans-serif;
-    }
-    th, td {
-      border: 1px solid #888;
-      padding: 8px;
-      text-align: left;
-    }
-    th {
-      background-color: #f2f2f2;
-      text-decoration: none;
-    }
-    tr:nth-child(even) td {
-      background-color: #fcfcfc;
-    }
-  </style>
+
 </head>
 <body>
 
